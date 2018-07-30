@@ -36,14 +36,19 @@ export class AppComponent {
 onClick(){
     console.log("--------------Simulation started--------------");
 
-    setInterval(function(){
-      console.log("Running..."); 
+    setInterval(function startSim(){
+      console.log("OnClick"); 
     },1000);
+
+    console.log("error search 1");
+
+
 
     this.dataService.getData().subscribe((posts) => {
       console.log(posts);
       this.posts = posts;
     });
+        console.log("error search 1");
     
     //interval = setInterval(Simulation.suitTelemetry.bind(null, time, decider),1000);
     //interval_switch = setInterval(SuitSwitch.SuitSwitch.bind(null,decider),1000);

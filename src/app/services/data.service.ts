@@ -18,9 +18,14 @@ export class DataService {
     console.log('Data service connected');
   }
 
+  createData(){
+
+    console.log("createData"); 
+
+ }
+
 
   getData(){
-    var x = "test";
      return this.http.get(this.apiUrl) 
      .pipe(map(this.extractData),
        catchError( this.handleErrorObservable)
@@ -29,7 +34,8 @@ export class DataService {
 
   private extractData(res: Response)
   {
-    let body = res.json();
+    // let body = res.json();
+    let body = JSON.parse('{ "myString": "string", "myNumber": 4 }');
     return body;
   }
 
@@ -38,10 +44,4 @@ export class DataService {
     return throwError(error.message || error);
   }
 
-  getContacts() {
-      this.getData().subscribe(data =>{
-      console.log(data);
-      this.data = data
-    });
-  }
 }
