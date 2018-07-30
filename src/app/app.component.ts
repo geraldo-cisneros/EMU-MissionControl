@@ -30,12 +30,6 @@ export class AppComponent {
       state: 'MA'
        }
    this.array = ['new']; */
-
-   this.dataService.getData().subscribe((posts) => {
-    console.log(posts);
-    this.posts = posts;
-  });
-  
   }
 
   
@@ -46,6 +40,10 @@ onClick(){
       console.log("Running..."); 
     },1000);
 
+    this.dataService.getData().subscribe((posts) => {
+      console.log(posts);
+      this.posts = posts;
+    });
     
     //interval = setInterval(Simulation.suitTelemetry.bind(null, time, decider),1000);
     //interval_switch = setInterval(SuitSwitch.SuitSwitch.bind(null,decider),1000);
