@@ -63,5 +63,17 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
-  }
+  },
+  "description": "EMU-Telemetry server for SUITS 2019",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geraldo-cisneros/EMU-Telemetry.git"
+  },
+  "author": "Geraldo Cisneros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geraldo-cisneros/EMU-Telemetry/issues"
+  },
+  "homepage": "https://github.com/geraldo-cisneros/EMU-Telemetry#readme"
 }
