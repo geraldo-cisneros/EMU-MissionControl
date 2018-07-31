@@ -6,15 +6,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule} from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
-import { Observable, interval, pipe } from 'rxjs';
-import {switchMap, map} from 'rxjs/operators';
+
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { DataService} from './services/data.service';
 
 import { AppComponent } from './app.component';
+import { EMUService } from './services/emu.service';
 
 
 
@@ -33,7 +32,10 @@ import { AppComponent } from './app.component';
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA 
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    EMUService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
