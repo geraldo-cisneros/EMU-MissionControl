@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { catchError } from '../../../node_modules/rxjs/operators';
 import { throwError, Observable } from 'rxjs';
@@ -14,15 +15,15 @@ export class DataService {
   private apiUrl= 'http://localhost:3000/';
   data: any = {};
 
-  constructor(private http: Http) { 
-    console.log('Data service connected');
+  constructor(private http: HttpClient) { 
+    console.log('Data service connected');  
+    
   }
 
+
   createData(){
-
-    console.log("createData"); 
-
- }
+    return this.http.post(this.apiUrl, 'createData running...');
+  }
 
   getData(){
      return this.http.get(this.apiUrl) 

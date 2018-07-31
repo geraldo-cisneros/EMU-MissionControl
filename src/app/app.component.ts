@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService} from './services/data.service';
+import { HttpClient, } from '@angular/common/http';
 
 
 
@@ -10,7 +11,7 @@ import { DataService} from './services/data.service';
 })
 export class AppComponent {
   title ='NASA SUITS 2018';
-  name:string;
+  user:string;
   age:number;
   email:string;
   address:address;
@@ -19,7 +20,19 @@ export class AppComponent {
   isEdit: boolean = false;
 
 
-  constructor(private dataService: DataService) { }
+  constructor(private http: HttpClient) { }
+
+  callServer() {
+    this.http.post('http://localhost:3000/', {
+
+    })
+    .subscribe(data => {
+    console.log(data);
+    });
+}
+
+
+
 
   ngOnInit() {
 /*     this.age =30;
@@ -36,7 +49,7 @@ export class AppComponent {
 onClick(){
     console.log("--------------Simulation started--------------");
 
-    setInterval(function startSim(){
+    setInterval(function createData(){
       console.log("OnClick"); 
     },1000);
 
@@ -44,11 +57,10 @@ onClick(){
 
 
 
-    this.dataService.getData().subscribe((posts) => {
-      console.log(posts);
-      this.posts = posts;
-    });
-        console.log("error search 1");
+    //this.dataService.createData();
+      // console.log(posts);
+      // this.posts = posts;
+        //console.log("error search 1");
     
     //interval = setInterval(Simulation.suitTelemetry.bind(null, time, decider),1000);
     //interval_switch = setInterval(SuitSwitch.SuitSwitch.bind(null,decider),1000);
