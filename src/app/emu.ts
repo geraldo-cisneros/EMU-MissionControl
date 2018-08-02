@@ -1,4 +1,4 @@
-export interface EMU {
+export interface xemu {
     heart_bpm: string,
     p_sub: string,
     t_sub:string,

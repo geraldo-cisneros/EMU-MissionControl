@@ -1,22 +1,33 @@
-import { Component } from '@angular/core';
-import { DataService} from './services/data.service';
+import { Component} from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
-import { EMUService } from './services/emu.service'
-;
-
+import { EMUService } from './services/emu.service';
+import { xemu } from './emu';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+
 })
 export class AppComponent {
-  title ='NASA SUITS 2018';
-  private EMU: Telem[] = [];
+  title ='NASA SUITS 2019';
+  public telems: xemu[];
+
+
  
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private emu: EMUService) { 
+    
+  }
+  ngOnInit() {
+    this.emu.getEMU()
+    .subscribe((data: xemu[]) => {this.telems = data;
+    console.log(data);
+    console.log('DATA!!!!!!!', this.telems);
+    });
+    console.log('server is running...');
+}
 
   callServer() {
     this.http.post('http://localhost:3000/', {
@@ -26,6 +37,7 @@ export class AppComponent {
     });
     console.log('server is running...');
 }
+
   stopServer() {
     this.http.post('http://localhost:3000/contact', {
     })
@@ -35,19 +47,7 @@ export class AppComponent {
     console.log('server has stopped');
 
   }
-  
-  getData() {
-    this.http.get<{EMU: Telem[]}>('http://localhost:3000/api/suit/recent', {
-    })
-    .subscribe(EMUData => {
-      this.EMU = EMUData.EMU;
-    });
-    console.log(EMU)
-  }
 
-
-
-  
 onClick(){
     console.log("--------------Simulation started--------------");
 
@@ -87,22 +87,4 @@ toggleEdit(){
 } */
 
 }
-
-export interface Telem{
-  heart_bpm: string,
-  p_sub: string,
-  t_sub:string,
-  v_fan:string,
-  p_o2:string,
-  rate_o2:string,
-  cap_battery:string,
-  p_h2o_g:string,
-  p_h2o_l:string,
-  p_sop:string,
-  rate_sop:string,
-  t_battery:string,
-  t_oxygen:string,
-  t_water:string
-}
-
 

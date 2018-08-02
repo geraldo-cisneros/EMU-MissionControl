@@ -97,7 +97,7 @@
         </div>
         
 
-        <ul class="container-fluid float-right nav nav-tabs nav-justified elegant-color-dark lighten-2 mx-0 mb-0 mt-1">
+<!--         <ul class="container-fluid float-right nav nav-tabs nav-justified elegant-color-dark lighten-2 mx-0 mb-0 mt-1">
                 <li type ="button" class="nav-item">
                     <a class="nav-link active" href="#!">Data Stream</a>
                 </li>
@@ -107,39 +107,39 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#!">Link 2</a>
                 </li>
-            </ul>   
+            </ul>    -->
             </div> 
-            <div>
+
+        <!--/TELEMETRY DATA-->
+            <div class="container-fluid float-right">
+            <div class = "jumbotron">
+            <div *ngFor="let telem of telems">
+                
                 <table class="table">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Telemetry</th>
+                        <th scope="col">Value</th>
+
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>Heart Rate</td>
+                        <td>{{telem.heart_bpm}}</td>
                       </tr>
                       <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>Sub Pressure</td>
+                        <td>{{telem.p_sub}}</td>
                       </tr>
                       <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                        <td>Sub Temperature</td>
+                        <td>{{telem.t_sub}}</td>
+                          </tr>
                     </tbody>
                   </table>
+            </div>
+            </div>
             </div>
      
 

@@ -26,7 +26,10 @@ export class DataService {
   }
 
   getData(){
-     return this.http.get('http://localhost:3000/api/suit');
+     return this.http.get(this.apiUrl) 
+     .pipe(map(this.extractData),
+       catchError( this.handleErrorObservable)
+  );
   }
 
   private extractData(res: Response)
