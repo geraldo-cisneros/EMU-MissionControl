@@ -39,7 +39,7 @@ export class AppComponent {
     console.log(data);
     });
     disabled = false;
-    interval_switch = setInterval(() => { this.getData() }, 1000);
+    interval_switch = setInterval(() => { this.getData() }, 500);
     console.log('server is running...');
 }
 //STOPS THE SERVER AND DATA STREAM
