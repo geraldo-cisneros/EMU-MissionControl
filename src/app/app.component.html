@@ -35,7 +35,7 @@
         <!--Title-->
         <h1
         class="card-title h1-responsive mt-1"><strong>NASA
-         S.U.I.T.S. 2018</strong></h1>
+         S.U.I.T.S. 2019</strong></h1>
         <!--Subtitle-->
         <h3
         class="black-text mb-8 font-bold">Command Central</h3>
@@ -88,7 +88,7 @@
         <br><br>
         <hr class="my-2">
         <br>
-        <button (click) ="callServer()" class="btn btn-success btn-lg">START</button>
+        <button (click)="callServer()"  class="btn btn-success btn-lg">START</button>
         <br>
         <br>
         <button (click) ="stopServer()" class="btn btn-danger btn-lg" role="button">STOP</button>   
@@ -112,7 +112,8 @@
 
         <!--/TELEMETRY DATA-->
             <div class="container-fluid float-right">
-            <div class = "jumbotron">
+            <div class = "jumbotron " >
+              <h1 class = "text-center">Telemetry Data</h1>
             <div *ngFor="let telem of telems">
                 
                 <table class="table">
