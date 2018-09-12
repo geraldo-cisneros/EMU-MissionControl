@@ -45,45 +45,45 @@
         class="d-flex justify-content-center">
       </div>
       </div>
-        <!--Jumbotron-->
+        <!--Jumbotron
       <div class="container-fluid">
       <div class="row">
       <div class="col-sm-2">
-        <!--Card-->
+        <Card
       <div class="card card-cascade">
-        <!--Card image-->
+        <!--Card image
       <div class="view overlay view-cascade waves-light" mdbWavesEffect>
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Texas_A%26M_University_logo.svg" class="img-fluid" alt="">
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
       </div>
-        <!--/.Card image-->
-        <!--Card content-->
+        <!--/.Card image-
+        <!--Card content-
       <div class="card-body card-body-cascade text-center">
-        <!--Title-->
+        <!--Title--
                     <h4 class="card-title"><strong>Texas A&M Team</strong></h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi
                      sunt, quod quibusdam.
                     </p>
-        <!--Facebook-->
+        <!--Facebook--
         <a type="button" class="btn-floating btn-small btn-fb waves-light" mdbWavesEffect><i class="fa fa-facebook"></i>
         </a>
-        <!--Twitter-->
+        <!--Twitter--
         <a type="button"
           class="btn-floating btn-small btn-tw waves-light"
           mdbWavesEffect>
           <i class="fa fa-twitter"></i>
         </a>
-        <!--Google +-->
+        <!--Google +--
         <a type="button btn-floating btn-small btn-dribbble waves-light" mdbWavesEffect>
           <i class="fa fa-dribbble"></i>
         </a>
       </div>
-    <!--/.Card content-->
+    <!--/.Card content--
     </div>
-<!--/.Card-->
-  </div>
+<!--/.Card--]
+  </div> -->
   <div class="col">
     <div class="jumbotron text-center">
       <h1 class="h1-responsive">Mission Control</h1>
@@ -111,10 +111,16 @@
               <th scope="col">Value</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody>            
+            <tr>
+              <td>Primary Oxygen</td>
+              <td>{{telem.t_oxygen}}%</td>
+            <tr>
+              <td>Secondary Oxygen</td>
+              <td>{{telem.t_oxygenSec}}%</td>
             <tr>
               <td>Heart Rate</td>
-              <td>{{telem.heart_bpm}}</td>
+              <td>{{telem.heart_bpm}} bpm</td>
             </tr>
             <tr>
               <td>Sub Pressure</td>
@@ -138,7 +144,7 @@
             </tr>
             <tr>
               <td>Battery Capacity</td>
-              <td>{{telem.cap_battery}}</td>
+              <td>{{telem.cap_battery}}%</td>
             </tr>
             <tr>
               <td>H2O Gas Pressure</td>
@@ -164,10 +170,7 @@
               <td>Remaining Water</td>
               <td>{{telem.t_water}}</td>
             </tr>
-            <tr>
-              <td>Primary Oxygen</td>
-              <td>{{telem.t_oxygen}}</td>
-            <tr>
+
           </tbody>
         </table>
       </div>

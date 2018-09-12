@@ -27,7 +27,7 @@ export class AppComponent {
     })
     .subscribe(data => {
     console.log(data);
-    });
+    }); 
     //updates data every .5 seconds
     interval_switch = setInterval(() => { this.getData() }, 500);
     console.log('server is running...');
