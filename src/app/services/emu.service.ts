@@ -1,8 +1,6 @@
 import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { xemu } from '../emu';
-import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators';
+
 
 @Injectable()
 export class EMUService {
@@ -16,7 +14,7 @@ export class EMUService {
     getEMU() {
         return this
                 .http
-                .get('http://localhost:3000/api/suit/recent'); 
+                .get('http://localhost:3000/api/simulation/state'); 
             }
         }
           

@@ -16,14 +16,14 @@ var   interval_switch;
 
 export class AppComponent {
   title ='NASA SUITS 2019';
-  public telems: xemu[];
+  telems: {};
 
   constructor(private http: HttpClient, private emu: EMUService) {}
 
 
 //STARTS THE SERVER AND DATA STREAM
   callServer() {
-    this.http.post('http://localhost:3000/', {
+    this.http.post('http://localhost:3000/api/simulation/start', {
     })
     .subscribe(data => {
     console.log(data);
@@ -34,7 +34,7 @@ export class AppComponent {
 }
 //STOPS THE SERVER AND DATA STREAM
   stopServer() {
-    this.http.post('http://localhost:3000/contact', {
+    this.http.post('http://localhost:3000/api/simulation/stop', {
     })
     .subscribe(data => {
     console.log(data);
@@ -52,7 +52,9 @@ export class AppComponent {
 //GETS DATA FOR STREAM
   getData() {
     this.emu.getEMU()
-    .subscribe((data: xemu[]) => {this.telems = data;
+    .subscribe(data => {this.telems = data;
+      this.telems = Array.of(this.telems);
+      console.log(this.telems)
     });
   }
   
