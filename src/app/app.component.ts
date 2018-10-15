@@ -2,7 +2,6 @@
 import { Component} from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
 import { EMUService } from './services/emu.service';
-import { xemu } from './emu';
 
 //Variables
 var   interval_switch;
@@ -22,18 +21,19 @@ export class AppComponent {
 
 
 //STARTS THE SERVER AND DATA STREAM
-  callServer() {
-    this.http.post('http://localhost:3000/api/simulation/start', {
+  startSimulation() {
+    this.http.post('http://localhost:3000/api/simulation/start',  {
     })
     .subscribe(data => {
     console.log(data);
     }); 
-    //updates data every .5 seconds
-    interval_switch = setInterval(() => { this.getData() }, 500);
+    //updates data every 1 second
+    interval_switch = setInterval(() => { this.getData() }, 1000);
     console.log('server is running...');
 }
+
 //STOPS THE SERVER AND DATA STREAM
-  stopServer() {
+  stopSimulation() {
     this.http.post('http://localhost:3000/api/simulation/stop', {
     })
     .subscribe(data => {
@@ -42,13 +42,31 @@ export class AppComponent {
     clearInterval(interval_switch );
     console.log('server has stopped');
   }
-//DEPLOYS FAN ERROR
-  deployError(){this.http.post('http://localhost:3000/error-ready', {
+
+  //SIMULATION IS PAUSED
+  pauseSimulation(){this.http.post('http://localhost:3000/api/simulation/pause', {
   })
   .subscribe(data => {
   console.log(data);
   });
 }
+
+//SIMULATION IS RESUMED
+resumeSimulation(){this.http.post('http://localhost:3000/api/simulation/unpause', {
+})
+.subscribe(data => {
+console.log(data);
+});
+}
+
+//DEPLOYS FAN ERROR
+  deployError(){this.http.patch('http://localhost:3000/api/simulation/deployerror?fan_error=true', {
+  })
+  .subscribe(data => {
+  console.log(data);
+  });
+}
+
 //GETS DATA FOR STREAM
   getData() {
     this.emu.getEMU()

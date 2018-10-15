@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
-      <!-- ********************************* Start your project here *******************************************-->
-
-        <nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark">
-        <a
+<body class = elegant-color-dark>
+	  <!-- ********************************* Start your project here *******************************************-->
+	<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark">
+		<a
         class="navbar-brand"
         href="#"><strong>NASA SUITS</strong></a>
         <ul
@@ -28,165 +27,117 @@
         class="fa fa-instagram"></i></a>
         </li>
         </ul>
-        </nav>
+	</nav>
         <!--Jumbotron-->
-        <div
-        class="jumbotron text-center">
+    <div
+        class="jumbotron text-center elegant-color-dark">
         <!--Title-->
       <h1
-        class="card-title h1-responsive mt-1"><strong>NASA
+        class="card-title h1-responsive mt-1 white-text"><strong>NASA
          S.U.I.T.S. 2019</strong>
       </h1>
-        <!--Subtitle-->
-      <h3
-        class="black-text mb-8 font-bold">Command Central</h3>
+		<!--Subtitle-->
+	<h3
+		class="white-text mb-8 font-bold">Command Central
+	</h3>
         <!--Text-->
       <div
         class="d-flex justify-content-center">
       </div>
-      </div>
-        <!--Jumbotron
-      <div class="container-fluid">
-      <div class="row">
-      <div class="col-sm-2">
-        <Card
-      <div class="card card-cascade">
-        <!--Card image
-      <div class="view overlay view-cascade waves-light" mdbWavesEffect>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Texas_A%26M_University_logo.svg" class="img-fluid" alt="">
-        <a>
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-        <!--/.Card image-
-        <!--Card content-
-      <div class="card-body card-body-cascade text-center">
-        <!--Title--
-                    <h4 class="card-title"><strong>Texas A&M Team</strong></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, ex, recusandae. Facere modi
-                     sunt, quod quibusdam.
-                    </p>
-        <!--Facebook--
-        <a type="button" class="btn-floating btn-small btn-fb waves-light" mdbWavesEffect><i class="fa fa-facebook"></i>
-        </a>
-        <!--Twitter--
-        <a type="button"
-          class="btn-floating btn-small btn-tw waves-light"
-          mdbWavesEffect>
-          <i class="fa fa-twitter"></i>
-        </a>
-        <!--Google +--
-        <a type="button btn-floating btn-small btn-dribbble waves-light" mdbWavesEffect>
-          <i class="fa fa-dribbble"></i>
-        </a>
-      </div>
-    <!--/.Card content--
-    </div>
-<!--/.Card--]
-  </div> -->
-  <div class="col">
-    <div class="jumbotron text-center">
-      <h1 class="h1-responsive">Mission Control</h1>
-      <br><br>
-      <hr class="my-2">
+	</div>
+  	<div class="col">
+    <div class="jumbotron text-center special-color-dark">
+      <h1 class="h1-responsive white-text">Mission Control</h1>
+      <hr class="my-2 white">
+      <br> 
       <br>
-      <button (click)="callServer()"  class="btn btn-success btn-lg">START</button>
+      <button (click)="startSimulation()"  class="btn btn-success btn-lg">START</button>
+      <button (click) ="stopSimulation()" class="btn btn-danger btn-lg" role="button">STOP</button>   
       <br>
       <br>
-      <button (click) ="stopServer()" class="btn btn-danger btn-lg" role="button">STOP</button>   
-      <button (click)="deployError()" class="btn btn-warning btn-lg" role="button">ERROR</button>   
-      <a class="btn btn-primary btn-lg" role="button">SAVE</a>       
-    </div>
-  </div> 
-
-  <!--TELEMETRY DATA TABLE -->
-    <div class="container-fluid float-right">
-      <div class = "jumbotron " >
-        <h1 class = "text-center">Telemetry Data</h1>
-      <div *ngFor="let telem of telems">      
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Telemetry</th>
-              <th scope="col">Value</th>
-            </tr>
-          </thead>
-          <tbody>            
-            <tr>
-              <td>Primary Oxygen</td>
-              <td>{{telem.t_oxygen}}%</td>
-            <tr>
-              <td>Secondary Oxygen</td>
-              <td>{{telem.t_oxygenSec}}%</td>
-            <tr>
-              <td>Heart Rate</td>
-              <td>{{telem.heart_bpm}} bpm</td>
-            </tr>
-            <tr>
-              <td>Sub Pressure</td>
-              <td>{{telem.p_sub}}</td>
-            </tr>
-            <tr>
-              <td>Sub Temperature</td>
-              <td>{{telem.t_sub}}</td>
-            </tr>
-            <tr>
-              <td>Fan Tachometer</td>
-              <td>{{telem.v_fan}}</td>
-            </tr>
-            <tr>
-              <td>Oxygen Pressure</td>
-              <td>{{telem.p_o2}}</td>
-            </tr>
-            <tr>
-              <td>Oxygen Flowrate</td>
-              <td>{{telem.rate_o2}}</td>
-            </tr>
-            <tr>
-              <td>Battery Capacity</td>
-              <td>{{telem.cap_battery}}%</td>
-            </tr>
-            <tr>
-              <td>H2O Gas Pressure</td>
-              <td>{{telem.p_h2o_g}}</td>
-            </tr>
-            <tr>
-              <td>H2O Liquid Pressure</td>
-              <td>{{telem.p_h2o_l}}</td>
-            </tr>
-            <tr>
-              <td>SOP Pressure</td>
-              <td>{{telem.p_sop}}</td>
-            </tr>
-            <tr>
-              <td>SOP Flowrate</td>
-              <td>{{telem.rate_sop}}</td>
-            </tr>
-            <tr>
-              <td>Remaining Battery</td>
-              <td>{{telem.t_battery}}</td>
-            </tr>
-            <tr>
-              <td>Remaining Water</td>
-              <td>{{telem.t_water}} oz</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+      <button (click)="pauseSimulation()" class="btn btn-primary btn-lg" role="button">PAUSE</button>  
+      <button (click)="resumeSimulation()" class="btn btn-success btn-lg" role="button">RESUME</button>  
+      <button (click)="deployError()" class="btn btn-warning btn-lg" role="button">ERROR</button> 
+      <br>
+        <br><br><br>
      
-
-    <!-- ****************************************************************************/Start your project here-->
-
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+          <div class = "jumbotron special-color" >
+            <h1 class = "text-center white-text">Telemetry Data</h1>
+          <div *ngFor="let telem of telems">      
+            <table class="table text-left green-text">
+              <thead>
+          <tr class = "white-text">
+                  <th scope="col">Telemetry</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody> 
+                <tr>
+                  <td>EVA Timer</td>
+                  <td>{{telem.timer}}</td>
+                </tr>           
+                <tr>
+                  <td>Primary Oxygen</td>
+                   <td>{{telem.ox_primary}}%</td>
+                <tr>
+                  <td>Secondary Oxygen</td>
+                  <td>{{telem.ox_secondary}}%</td>
+                <tr>
+                  <td>Heart Rate</td>
+                  <td>{{telem.heart_bpm}} bpm</td>
+                </tr>
+                <tr>
+                  <td>Sub Pressure</td>
+                  <td>{{telem.p_sub}}</td>
+                </tr>
+                <tr>
+                  <td>Sub Temperature</td>
+                  <td>{{telem.t_sub}}</td>
+                </tr>
+                <tr>
+                  <td>Fan Tachometer</td>
+                  <td>{{telem.v_fan}}</td>
+                </tr>
+                <tr>
+                  <td>Oxygen Pressure</td>
+                  <td>{{telem.p_o2}}</td>
+                </tr>
+                <tr>
+                  <td>Oxygen Flowrate</td>
+                  <td>{{telem.rate_o2}}</td>
+                </tr>
+                <tr>
+                  <td>Battery Capacity</td>
+                  <td>{{telem.battery_out}}%</td>
+                </tr>
+                <tr>
+                  <td>H2O Gas Pressure</td>
+                  <td>{{telem.p_h2o_g}}</td>
+                </tr>
+                <tr>
+                  <td>H2O Liquid Pressure</td>
+                  <td>{{telem.p_h2o_l}}</td>
+                </tr>
+                <tr>
+                  <td>SOP Pressure</td>
+                  <td>{{telem.p_sop}}</td>
+                </tr>
+                <tr>
+                  <td>SOP Flowrate</td>
+                  <td>{{telem.rate_sop}}</td>
+                </tr>
+                <tr>
+                  <td>Remaining Battery</td>
+                  <td>{{telem.t_battery}}</td>
+                </tr>
+                <tr>
+                  <td>Remaining Water</td>
+                  <td>{{telem.t_water}} oz</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
 
