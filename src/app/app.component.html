@@ -5,48 +5,32 @@
 	<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark">
 		<a
         class="navbar-brand"
-        href="#"><strong>NASA SUITS</strong></a>
+        href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong>NASA SUITS</strong></a>
         <ul
         class="navbar-nav nav-flex-icons">
-        <li
-        class="nav-item">
-        <a
-        class="nav-link"><i
-        class="fa fa-facebook"></i></a>
-        </li>
-        <li
-        class="nav-item">
-        <a
-        class="nav-link"><i
-        class="fa fa-twitter"></i></a>
-        </li>
-        <li
-        class="nav-item"> 
-        <a
-        class="nav-link"><i
-        class="fa fa-instagram"></i></a>
-        </li>
+
         </ul>
 	</nav>
         <!--Jumbotron-->
-    <div
-        class="jumbotron text-center elegant-color-dark">
-        <!--Title-->
-      <h1
-        class="card-title h1-responsive mt-1 white-text"><strong>NASA
-         S.U.I.T.S. 2019</strong>
-      </h1>
-		<!--Subtitle-->
-	<h3
-		class="white-text mb-8 font-bold">Command Central
-	</h3>
-        <!--Text-->
-      <div
-        class="d-flex justify-content-center">
-      </div>
-	</div>
+    <div class="jumbotron text-center elegant-color">
+        <div class="view">
+            <img src="https://microgravityuniversity.jsc.nasa.gov/img/NASASUITS-logo.png" class="img-fluid" alt="placeholder">
+            <div class="mask flex-center waves-effect waves-light rgba-black-light">
+                <h1
+                class="d-flex justify-content-center white-text"><strong>NASA S.U.I.T.S. 2019 | <br></strong>
+              </h1>
+              <h3
+              class="white-text mb-8 font-bold">
+              Command Central
+            </h3>
+            </div>
+          </div>
+  </div>
+  
+
   	<div class="col">
-    <div class="jumbotron text-center special-color-dark">
+    <div class="jumbotron text-center elegant-color">
+        <div class = "jumbotron elegant-color-dark" >
       <h1 class="h1-responsive white-text">Mission Control</h1>
       <hr class="my-2 white">
       <br> 
@@ -58,13 +42,13 @@
       <button (click)="pauseSimulation()" class="btn btn-primary btn-lg" role="button">PAUSE</button>  
       <button (click)="resumeSimulation()" class="btn btn-success btn-lg" role="button">RESUME</button>  
       <button (click)="deployError()" class="btn btn-warning btn-lg" role="button">ERROR</button> 
+    </div>
       <br>
-        <br><br><br>
-     
-          <div class = "jumbotron special-color" >
-            <h1 class = "text-center white-text">Telemetry Data</h1>
-          <div *ngFor="let telem of telems">      
-            <table class="table text-left green-text">
+      <div *ngFor="let telem of telems">  
+          <div class = "jumbotron elegant-color-dark" >
+              <h1 class = "text-center white-text">Telemetry Stream</h1>
+              <br><br>    
+            <table class="table text-left grey-text">
               <thead>
           <tr class = "white-text">
                   <th scope="col">Telemetry</th>
@@ -73,7 +57,7 @@
               </thead>
               <tbody> 
                 <tr>
-                  <td>EVA Timer</td>
+                  <td>EVA Time</td>
                   <td>{{telem.timer}}</td>
                 </tr>           
                 <tr>
@@ -140,4 +124,15 @@
         </div>
       </div>
     </div>
+    <!-- Footer -->
+<footer class="page-footer font-small elegant-color">
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3 ">
+    <a href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong>NASA SUITS</strong></a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
