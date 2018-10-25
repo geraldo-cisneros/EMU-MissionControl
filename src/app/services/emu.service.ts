@@ -1,6 +1,6 @@
 import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { DEFAULT_VALUE_ACCESSOR } from '@angular/forms/src/directives/default_value_accessor';
 
 @Injectable()
 export class EMUService {
@@ -16,5 +16,4 @@ export class EMUService {
                 .http
                 .get('http://localhost:3000/api/simulation/state'); 
             }
-        }
-          
+}

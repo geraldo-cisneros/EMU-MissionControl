@@ -3,6 +3,7 @@ import { Component} from '@angular/core';
 import { HttpClient, } from '@angular/common/http';
 import { EMUService } from './services/emu.service';
 
+
 //Variables
 var   interval_switch;
 
@@ -67,6 +68,22 @@ console.log(data);
   });
 }
 
+//RESOLVES FAN ERROR
+resolveError(){this.http.patch('http://localhost:3000/api/simulation/deployerror?fan_error=false', {
+})
+.subscribe(data => {
+console.log(data);
+});
+}
+
+//DEPLOYS FAN ERROR
+setHandHold(val){this.http.patch(`http://localhost:3000/api/simulation/hand-hold?handhold=${val}`, {
+})
+.subscribe(data => {
+  console.log(data);
+});
+}
+
 //GETS DATA FOR STREAM
   getData() {
     this.emu.getEMU()
@@ -75,6 +92,4 @@ console.log(data);
       console.log(this.telems)
     });
   }
-  
 }
-

@@ -3,13 +3,13 @@
 <body class = elegant-color-dark>
 	  <!-- ********************************* Start your project here *******************************************-->
 	<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark">
-		<a
-        class="navbar-brand"
-        href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong>NASA SUITS</strong></a>
-        <ul
-        class="navbar-nav nav-flex-icons">
-
-        </ul>
+      <a
+        class="navbar-brand" 
+        href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong>NASA SUITS</strong>
+      </a>
+      <a class="navbar-brand">
+      <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" class="img-fluid" alt="placeholder">
+      </a>
 	</nav>
         <!--Jumbotron-->
     <div class="jumbotron text-center elegant-color">
@@ -35,16 +35,30 @@
       <hr class="my-2 white">
       <br> 
       <br>
-      <button (click)="startSimulation()"  class="btn btn-success btn-lg">START</button>
-      <button (click) ="stopSimulation()" class="btn btn-danger btn-lg" role="button">STOP</button>   
+      <button (click)="startSimulation()"  style ="width:8%" class="btn success-color btn-lg">START  </button>
+      <button (click)="pauseSimulation()" style ="width:8%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
+      <button (click)="deployError()" style ="width:8%" class="btn warning-color btn-lg" role="button">ERROR  </button>
       <br>
-      <br>
-      <button (click)="pauseSimulation()" class="btn btn-primary btn-lg" role="button">PAUSE</button>  
-      <button (click)="resumeSimulation()" class="btn btn-success btn-lg" role="button">RESUME</button>  
-      <button (click)="deployError()" class="btn btn-warning btn-lg" role="button">ERROR</button> 
-    </div>
-      <br>
+      <button (click) ="stopSimulation()" style ="width:8%" class="btn btn-danger btn-lg" role="button">STOP   </button>
+      <button (click)="resumeSimulation()" style ="width:8%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
+      <button (click)="resolveError()" style ="width:8%" class="btn primary-color-dark btn-lg" role="button">RESOLVE</button> 
+      <br><br>
+
       
+
+      <!-- <div>
+      <input type="text" id = "handhold"  value="">
+      <script>
+          function handHold(){
+            var val = prompt('Enter Handhold Value')
+            document.getElementById("handhold").innerHTML = val
+            console.log(val)
+            return val
+          }
+          </script>
+        <button class="btn btn-primary btn-sm" onclick = "handHold()">Submit</button>
+      <br>
+      </div> -->
       <div *ngFor="let telem of telems">  
           <div class = "jumbotron elegant-color-dark" >
               <h1 class = "text-center white-text">Telemetry Stream</h1>
