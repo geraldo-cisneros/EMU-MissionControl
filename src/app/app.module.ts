@@ -6,22 +6,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule} from '@angular/common/http';
-
+import { RouterModule, Routes } from '@angular/router'
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { DataService} from './services/data.service';
-
 import { AppComponent } from './app.component';
 import { EMUService } from './services/emu.service';
+import { UIAComponent } from './controllers/uia.component';
+import { DCUComponent } from './controllers/dcu.component';
 
+const routes: Routes = [
+  { path: 'uia', component: UIAComponent },
+  { path: 'dcu', component: DCUComponent }
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    UIAComponent,
+    DCUComponent,
+
   ],
+  exports: [
+    RouterModule 
+  ],
+
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -30,11 +41,12 @@ import { EMUService } from './services/emu.service';
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     NgbModule.forRoot(),
+    RouterModule.forRoot(routes)
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA 
   ],
   providers: [
-    DataService,
+
     EMUService
   ],
   bootstrap: [AppComponent]

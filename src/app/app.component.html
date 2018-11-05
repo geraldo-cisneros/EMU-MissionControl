@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
 <body class = elegant-color-dark>
-	  <!-- ********************************* Start your project here *******************************************-->
-	<nav class="navbar navbar-expand-lg navbar-dark elegant-color-dark">
-      <a
-        class="navbar-brand" 
-        href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong>NASA SUITS</strong>
-      </a>
-      <a class="navbar-brand">
-      <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" class="img-fluid" alt="placeholder">
-      </a>
-	</nav>
+    <html lang="en">
+    <!-- ********************************* Start your project here *******************************************-->
+    
+    <div class="col">
+      <div class="col-md-100">
+  
+          <!--Card Primary-->
+          <nav class="navbar elegant-color-dark text-left z-depth-2">
+              <div class="card-body">
+                <!-- <a 
+                href= "https://microgravityuniversity.jsc.nasa.gov/nasasuits.cfm"><strong class="white-text">NASA SUITS</strong>
+              </a> -->
+              <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg" style="width:75px;height:75px;" class="img-fluid float-right" alt="placeholder">
+              
+              </div>
+          </nav>
+
         <!--Jumbotron-->
     <div class="jumbotron text-center elegant-color">
         <div class="view">
@@ -26,23 +32,110 @@
             </div>
           </div>
   </div>
-  
 
-  	<div class="col">
-    <div class="jumbotron text-center elegant-color">
+
+  <div class="col ">
+    <div class="jumbotron jumbotron-fluid text-center elegant-color clearfix ">
+      <div class = "container elegant-color-dark align-left pad-left" style="height: 415px;" >
+        <br><br>
+        <h1 class="h1-responsive white-text">UIA Control</h1>
+        <hr class="my-2 white">
+        <br> 
+        <br>
+        <button (click)="startUiaSimulation()"  style ="width:20%" class="btn success-color btn-lg">START</button>
+        <button (click)="pauseUiaSimulation()" style ="width:20%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
+        <br>
+        <button (click) ="stopUiaSimulation()" style ="width:20%" class="btn btn-danger btn-lg" role="button">STOP</button>
+        <button (click)="resumeUiaSimulation()" style ="width:20%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
+        <br><br> <br><br> <br><br>
+        </div>
+
+          <div class = "container elegant-color-dark align-right pad-right">
+            <br>
+              <h1 class = "text-center white-text">UIA</h1>
+          <div >  
+              <br>
+               <table  class="table text-left grey-text" style="height: 307px;" >
+              <thead *ngFor = "let uia of uias" >
+              </thead>
+              <tbody> 
+                <tr>
+                  <td>EMU</td>
+                  <td *ngFor = "let uia of uias">{{uia.emu_onOff}}</td>
+                </tr>
+                <tr >
+                  <td>Supply Water</td>
+                  <td  *ngFor = "let uia of uias" >{{uia.water_supply}}%</td>
+                </tr>           
+                <tr>
+                  <td>Waste Water</td>
+                   <td *ngFor = "let uia of uias" >{{uia.waste_water}}</tr>
+                <tr>
+                  <td>Oxygen</td>
+                  <td *ngFor = "let uia of uias" >{{uia.oxygen_supply}}%</td>
+                <tr>
+                  <td>O2 Vent</td>
+                  <td *ngFor = "let uia of uias" >{{uia.o2_vent}} </td>
+                </tr>
+                <tr>
+                    <td>O2 Prssure</td>
+                    <td *ngFor = "let uia of uias" >{{uia.oxygen_supp_out}} psi</td>
+                  </tr>
+                <!-- <tr>
+                  <td>Sub Temperature</td>
+                  <td *ngFor = "let telem of telems">{{telem.t_sub}}</td>
+                </tr>
+              </tbody> -->
+            </table>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+<div class = "col">
+  <nav class=" navbar navbar-expand-lg navbar-dark elegant-color-dark">
+      <a routerLink ="/" class="navbar-brand" href="">Controllers</a>
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a routerLink ="/uia" class="nav-link"  href="#">UIA Controller</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink ="/dcu" class="nav-link" href="#">DCU Controller</a>
+          </li>
+          <li class="nav-item">
+              <a routerLink ="/" class="nav-link" href="#">Close Controller</a>
+            </li>
+        </ul>
+      </div>
+    </nav>
+  <router-outlet></router-outlet>
+  <app-messages></app-messages>
+  <br><br>
+
+  </div>
+
+  	<div class = "col">
+      <div class="jumbotron text-center elegant-color">
         <div class = "jumbotron elegant-color-dark" >
-      <h1 class="h1-responsive white-text">Mission Control</h1>
-      <hr class="my-2 white">
-      <br> 
-      <br>
-      <button (click)="startSimulation()"  style ="width:8%" class="btn success-color btn-lg">START  </button>
-      <button (click)="pauseSimulation()" style ="width:8%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
-      <button (click)="deployError()" style ="width:8%" class="btn warning-color btn-lg" role="button">ERROR  </button>
-      <br>
-      <button (click) ="stopSimulation()" style ="width:8%" class="btn btn-danger btn-lg" role="button">STOP   </button>
-      <button (click)="resumeSimulation()" style ="width:8%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
-      <button (click)="resolveError()" style ="width:8%" class="btn primary-color-dark btn-lg" role="button">RESOLVE</button> 
-      <br><br>
+          <h1 class="h1-responsive white-text">Mission Control</h1>
+          <hr class="my-2 white">
+          <br> 
+          <br>
+          <button (click)="startSimulation()"  style ="width:8%" class="btn success-color btn-lg">START  </button>
+          <button (click)="pauseSimulation()" style ="width:8%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
+          <button (click)="deployError()" style ="width:8%" class="btn warning-color btn-lg" role="button">ERROR  </button>
+          <br>
+          <button (click) ="stopSimulation()" style ="width:8%" class="btn btn-danger btn-lg" role="button">STOP   </button>
+          <button (click)="resumeSimulation()" style ="width:8%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
+          <button (click)="resolveError()" style ="width:8%" class="btn primary-color-dark btn-lg" role="button">RESOLVE</button> 
+          <br><br>
+      
 
       
 
@@ -59,6 +152,7 @@
         <button class="btn btn-primary btn-sm" onclick = "handHold()">Submit</button>
       <br>
       </div> -->
+
       <div *ngFor="let telem of telems">  
           <div class = "jumbotron elegant-color-dark" >
               <h1 class = "text-center white-text">Telemetry Stream</h1>
@@ -139,6 +233,7 @@
         </div>
       </div>
     </div>
+    </div>
     <!-- Footer -->
 <footer class="page-footer font-small elegant-color">
 
@@ -150,4 +245,6 @@
 
 </footer>
 <!-- Footer -->
+
+
 
