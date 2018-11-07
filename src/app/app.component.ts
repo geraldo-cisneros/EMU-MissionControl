@@ -26,7 +26,9 @@ export class AppComponent {
 ngOnInit(){
   this.startUiaSimulation()
 }
-
+refresh(){
+  location.reload()
+}
 startUiaSimulation() {
   this.http.post('http://localhost:3000/api/simulation/uiastart',  {
   })
