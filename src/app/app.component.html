@@ -35,27 +35,28 @@
 
 
 	<div class = "col">
-      <div class="jumbotron text-center elegant-color">
-        <div class = "jumbotron elegant-color-dark" >
+      <div class=" row jumbotron text-center elegant-color">
+        <div class = "col-md-6">
+        <div class = "jumbotron elegant-color-dark " style = "height: 100% "> 
         <br><br>
         <h1 class="h1-responsive white-text">UIA Control</h1>
         <hr class="my-2 white">
         <br> 
         <br>
-        <button (click)="startUiaSimulation()"  style ="width:20%" class="btn success-color btn-lg">START</button>
-        <button (click)="pauseUiaSimulation()" style ="width:20%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
+        <button (click)="startUiaSimulation()"  style ="width:30%" class="btn success-color btn-lg">START</button>
+        <button (click)="pauseUiaSimulation()" style ="width:30%"class="btn btn-primary btn-lg" role="button">PAUSE  </button>  
         <br>
-        <button (click) ="stopUiaSimulation()" style ="width:20%" class="btn btn-danger btn-lg" role="button">STOP</button>
-        <button (click)="resumeUiaSimulation()" style ="width:20%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
-        <br><br> <br><br> <br><br>
-        </div><br>
-
-          <div class = "jumbotron elegant-color-dark" style = "height: auto; width: auto">
-            <br>
+        <button (click) ="stopUiaSimulation()" style ="width:30%" class="btn btn-danger btn-lg" role="button">STOP</button>
+        <button (click)="resumeUiaSimulation()" style ="width:30%" class="btn success-color-dark btn-lg" role="button">RESUME </button> 
+        </div>
+        </div> 
+        
+        <div class = "col-md-6">
+            <div class = "jumbotron elegant-color-dark " style = "height: 100% "> 
               <h1 class = "text-center white-text">UIA</h1>
           <div >  
               <br>
-               <table  class="table text-left grey-text" style="height: 307px;" >
+               <table  class="table text-left grey-text">
               <thead *ngFor = "let uia of uias" >
               </thead>
               <tbody> 
@@ -87,8 +88,7 @@
       </div>
       </div>
     </div>
-  </div>
-
+</div>  
 <div class = "col">
   <nav class=" navbar navbar-expand-lg navbar-dark elegant-color-dark">
       <a routerLink ="/" class="navbar-brand" href="">CONTROLLERS</a>
