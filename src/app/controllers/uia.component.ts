@@ -20,15 +20,40 @@ export class UIAComponent {
     }
 
     status: boolean = false;
+    status1: boolean = false; 
     supplystatus: boolean = false; 
+    supply1status: boolean = false;
+    waste1status: boolean =  false; 
     wastestatus: boolean = false; 
     oxstatus: boolean = false; 
+    ox1status: boolean = false;
+    pumpstatus: boolean = false;
     ventstatus: boolean = false;
 
-    emuOnOff() {
+    emuOnOff1() {
+        this.status1 = !this.status;
+        if (!this.status1){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu1=false', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+        }
+        else{
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu1=true', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+
+        }
+    }
+    emuOnOff2() {
         this.status = !this.status;
         if (!this.status){
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu_on_off=false', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu2=false', {
             })
             .subscribe(data => {
             console.log(data);
@@ -36,7 +61,7 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu_on_off=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu2=true', {
             })
             .subscribe(data => {
             console.log(data);
@@ -46,10 +71,30 @@ export class UIAComponent {
         }
     }
 
-    supplyWater() {
+    supplyWater1() {
+        this.supply1status = !this.supply1status;
+        if (!this.supply1status){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev1_supply=false', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+        }
+        else{
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_supply=true', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+
+        }
+    }
+    supplyWater2() {
         this.supplystatus = !this.supplystatus;
         if (!this.supplystatus){
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?supply=false', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_supply=false', {
             })
             .subscribe(data => {
             console.log(data);
@@ -57,7 +102,7 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?supply=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_supply=true', {
             })
             .subscribe(data => {
             console.log(data);
@@ -67,10 +112,30 @@ export class UIAComponent {
         }
     }
 
-    wasteWater() {
+    wasteWater1() {
+        this.waste1status = !this.waste1status;
+        if (!this.waste1status){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev1_waste=false', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+        }
+        else{
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev1_waste=true', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+
+        }
+    }
+    wasteWater2() {
         this.wastestatus = !this.wastestatus;
         if (!this.wastestatus){
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?waste=false', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_waste=false', {
             })
             .subscribe(data => {
             console.log(data);
@@ -78,7 +143,7 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?waste=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_waste=true', {
             })
             .subscribe(data => {
             console.log(data);
@@ -88,10 +153,10 @@ export class UIAComponent {
         }
     }
 
-    oxygen() {
-        this.oxstatus = !this.oxstatus;
-        if (!this.oxstatus){
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?oxygen=false', {
+    oxygen1() {
+        this.ox1status = !this.ox1status;
+        if (!this.ox1status){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu1_O2=false', {
             })
             .subscribe(data => {
             console.log(data);
@@ -99,7 +164,27 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?oxygen=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu1_O2=true', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+
+        }
+    }
+    oxygen2() {
+        this.oxstatus = !this.oxstatus;
+        if (!this.oxstatus){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu2_O2=false', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+        }
+        else{
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?emu2_O2=true', {
             })
             .subscribe(data => {
             console.log(data);
@@ -112,7 +197,7 @@ export class UIAComponent {
     o2Vent() {
         this.ventstatus = !this.ventstatus;
         if (!this.ventstatus){
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?o2_vent=false', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?O2_vent=false', {
             })
             .subscribe(data => {
             console.log(data);
@@ -120,7 +205,27 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?o2_vent=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?O2_vent=true', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+
+        }
+    }
+    depressPump() {
+        this.pumpstatus = !this.pumpstatus;
+        if (!this.pumpstatus){
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?depress_pump=false', {
+            })
+            .subscribe(data => {
+            console.log(data);
+            });
+            }
+        }
+        else{
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?depress_pump=true', {
             })
             .subscribe(data => {
             console.log(data);

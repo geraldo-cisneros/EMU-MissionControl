@@ -61,27 +61,56 @@
               </thead>
               <tbody> 
                 <tr>
-                  <td>EMU</td>
-                  <td *ngFor = "let uia of uias">{{uia.emu_onOff}}</td>
+                  <td>EMU1</td>
+                  <td *ngFor = "let uia of uias">{{uia.emu1}}</td>
+                </tr>
+                <tr>
+                  <td>EMU2</td>
+                  <td *ngFor = "let uia of uias">{{uia.emu2}}</td>
                 </tr>
                 <tr >
-                  <td>Supply Water</td>
-                  <td  *ngFor = "let uia of uias" >{{uia.water_supply}}%</td>
-                </tr>           
+                  <td>EV1 SUPPLY</td>
+                  <td  *ngFor = "let uia of uias" >{{uia.ev1_supply}}</td>
+                </tr>     
+                <tr >
+                  <td>EV2 SUPPLY</td>
+                  <td  *ngFor = "let uia of uias" >{{uia.ev2_supply}}</td>
+                </tr>          
                 <tr>
-                  <td>Waste Water</td>
-                   <td *ngFor = "let uia of uias" >{{uia.waste_water}}</tr>
+                  <td>EV1 WASTE</td>
+                    <td  *ngFor = "let uia of uias" >{{uia.ev1_waste}}</td>
+                  </tr>     
+                  <tr>
+                    <td>EV2 WASTE</td>
+                    <td  *ngFor = "let uia of uias" >{{uia.ev2_waste}}</td>
+                  </tr>  
+ 
+                  <tr>
+                    <td>EV1 OXYGEN</td>
+                    <td  *ngFor = "let uia of uias" >{{uia.emu1_O2}}</td>
+                  </tr> 
+                  
+                  <tr>
+                        <td>EV2 OXYGEN</td>
+                        <td  *ngFor = "let uia of uias" >{{uia.emu2_O2}}</td>
+                      </tr>     
                 <tr>
-                  <td>Oxygen</td>
-                  <td *ngFor = "let uia of uias" >{{uia.oxygen_supply}}%</td>
-                <tr>
-                  <td>O2 Vent</td>
-                  <td *ngFor = "let uia of uias" >{{uia.o2_vent}} </td>
+                  <td>O2 VENT</td>
+                  <td *ngFor = "let uia of uias" >{{uia.O2_vent}} </td>
                 </tr>
                 <tr>
-                    <td>O2 Prssure</td>
-                    <td *ngFor = "let uia of uias" >{{uia.oxygen_supp_out}} psi</td>
+                    <tr>
+                        <td>DEPRESS PUMP</td>
+                        <td *ngFor = "let uia of uias" >{{uia.depress_pump}} </td>
+                      </tr>
+                      <tr>
+                    <td>EMU1 O2 PRESSURE</td>
+                    <td *ngFor = "let uia of uias" >{{uia.oxygen_supp_out1}} psi</td>
                   </tr>
+                  <tr>
+                      <td>EMU2 O2 PRESSURE</td>
+                      <td *ngFor = "let uia of uias" >{{uia.oxygen_supp_out2}} psi</td>
+                    </tr>
               </tbody> 
             </table>
           </div>
