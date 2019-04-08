@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "tsc": "tsc -p src -w", 
+    "tsc": "tsc -p src -w",
     "postinstall": "ng build --aot --prod"
   },
   "private": true,
@@ -37,7 +37,6 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "materialize": "^1.0.0",
-
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.5",
     "rxjs": "^6.3.2",
@@ -69,7 +68,7 @@
     "typescript": "^2.9.2"
   },
   "engines": {
-    "node": "8.12.0", 
+    "node": "8.12.0",
     "npm": "6.9.0"
   },
   "description": "EMU-Telemetry server for SUITS 2019",
