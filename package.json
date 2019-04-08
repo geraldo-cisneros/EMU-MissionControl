@@ -67,7 +67,7 @@
     "tslint": "~5.11.0",
     "typescript": "^2.9.2"
   },
-  "description": "EMU-Telemetry server for SUITS 2019",
+  "description": "EMU-Telemetry server for S.U.I.T.S 2019",
   "main": "karma.conf.js",
   "repository": {
     "type": "git",
