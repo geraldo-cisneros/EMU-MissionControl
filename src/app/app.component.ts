@@ -6,6 +6,8 @@ import { EMUService } from './services/emu.service';
 
 //Variables
 var   interval_switch;
+const url = 'http://localhost:3000'
+const url2 = 'https://suits2019.herokuapp.com/'
 
 @Component({  
   selector: 'app-root',
@@ -30,7 +32,7 @@ refresh(){
   location.reload()
 }
 startUiaSimulation() {
-  this.http.post('http://localhost:3000/api/simulation/uiastart',  {
+  this.http.post(url +'/api/simulation/uiastart',  {
   })
   .subscribe(data => {
   console.log(data);
@@ -41,7 +43,7 @@ startUiaSimulation() {
 }
 //STOPS THE SERVER AND DATA STREAM
 stopUiaSimulation() {
-  this.http.post('http://localhost:3000/api/simulation/uiastop', {
+  this.http.post(url + '/api/simulation/uiastop', {
   })
   .subscribe(data => {
   console.log(data);
@@ -51,7 +53,7 @@ stopUiaSimulation() {
 }
 
   //SIMULATION IS PAUSED
-  pauseUiaSimulation(){this.http.post('http://localhost:3000/api/simulation/uiapause', {
+  pauseUiaSimulation(){this.http.post(url + '/api/simulation/uiapause', {
   })
   .subscribe(data => {
   console.log(data);
@@ -59,7 +61,7 @@ stopUiaSimulation() {
 }
 
 //UiaSIMULATION IS RESUMED
-resumeUiaSimulation(){this.http.post('http://localhost:3000/api/simulation/uiaunpause', {
+resumeUiaSimulation(){this.http.post(url + '/api/simulation/uiaunpause', {
 })
 .subscribe(data => {
 console.log(data);
@@ -70,7 +72,7 @@ console.log(data);
 //***********************************Telemetry*************************************
 //STARTS THE SERVER AND DATA STREAM
   startSimulation() {
-    this.http.post('http://localhost:3000/api/simulation/start',  {
+    this.http.post(url + '/api/simulation/start',  {
     })
     .subscribe(data => {
     console.log(data);
@@ -82,7 +84,7 @@ console.log(data);
 
 //STOPS THE SERVER AND DATA STREAM
   stopSimulation() {
-    this.http.post('http://localhost:3000/api/simulation/stop', {
+    this.http.post(url + '/api/simulation/stop', {
     })
     .subscribe(data => {
     console.log(data);
@@ -92,7 +94,7 @@ console.log(data);
   }
 
   //SIMULATION IS PAUSED
-  pauseSimulation(){this.http.post('http://localhost:3000/api/simulation/pause', {
+  pauseSimulation(){this.http.post(url + '/api/simulation/pause', {
   })
   .subscribe(data => {
   console.log(data);
@@ -100,7 +102,7 @@ console.log(data);
 }
 
 //SIMULATION IS RESUMED
-resumeSimulation(){this.http.post('http://localhost:3000/api/simulation/unpause', {
+resumeSimulation(){this.http.post(url + '/api/simulation/unpause', {
 })
 .subscribe(data => {
 console.log(data);
@@ -108,7 +110,7 @@ console.log(data);
 }
 
 //DEPLOYS FAN ERROR
-  deployError(){this.http.patch('http://localhost:3000/api/simulation/deployerror?fan_error=true', {
+  deployError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=true', {
   })
   .subscribe(data => {
   console.log(data);
@@ -116,7 +118,7 @@ console.log(data);
 }
 
 //RESOLVES FAN ERROR
-resolveError(){this.http.patch('http://localhost:3000/api/simulation/deployerror?fan_error=false', {
+resolveError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=false', {
 })
 .subscribe(data => {
 console.log(data);
@@ -124,7 +126,7 @@ console.log(data);
 }
 
 //DEPLOYS FAN ERROR
-setHandHold(val){this.http.patch(`http://localhost:3000/api/simulation/hand-hold?handhold=${val}`, {
+setHandHold(val){this.http.patch(url + '/api/simulation/hand-hold?handhold=${val}`', {
 })
 .subscribe(data => {
   console.log(data);

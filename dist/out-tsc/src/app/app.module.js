@@ -16,7 +16,6 @@ var http_1 = require("@angular/http");
 var http_2 = require("@angular/common/http");
 var router_1 = require("@angular/router");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-var data_service_1 = require("./services/data.service");
 var app_component_1 = require("./app.component");
 var emu_service_1 = require("./services/emu.service");
 var uia_component_1 = require("./controllers/uia.component");
@@ -51,7 +50,6 @@ var AppModule = /** @class */ (function () {
             schemas: [core_2.CUSTOM_ELEMENTS_SCHEMA
             ],
             providers: [
-                data_service_1.DataService,
                 emu_service_1.EMUService
             ],
             bootstrap: [app_component_1.AppComponent]

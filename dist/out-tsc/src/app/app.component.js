@@ -22,6 +22,12 @@ var AppComponent = /** @class */ (function () {
         this.title = 'NASA SUITS 2019';
     }
     //*************************************UIA****************************************
+    AppComponent.prototype.ngOnInit = function () {
+        this.startUiaSimulation();
+    };
+    AppComponent.prototype.refresh = function () {
+        location.reload();
+    };
     AppComponent.prototype.startUiaSimulation = function () {
         var _this = this;
         this.http.post('http://localhost:3000/api/simulation/uiastart', {})
