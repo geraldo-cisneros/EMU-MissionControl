@@ -30,6 +30,9 @@ export class UIAComponent {
     pumpstatus: boolean = false;
     ventstatus: boolean = false;
 
+
+    
+
     emuOnOff1() {
         this.status1 = !this.status;
         if (!this.status1){
@@ -82,7 +85,7 @@ export class UIAComponent {
             }
         }
         else{
-            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev2_supply=true', {
+            {this.http.patch('http://localhost:3000/api/simulation/newuiacontrols?ev1_supply=true', {
             })
             .subscribe(data => {
             console.log(data);

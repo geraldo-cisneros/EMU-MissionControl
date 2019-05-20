@@ -31,6 +31,8 @@ ngOnInit(){
 refresh(){
   location.reload()
 }
+
+//STARTS THE UIA SIMULATION 
 startUiaSimulation() {
   this.http.post(url +'/api/simulation/uiastart',  {
   })
@@ -82,7 +84,7 @@ console.log(data);
     console.log('server is running...');
 }
 
-//STOPS THE SERVER AND DATA STREAM
+//STOPS THE SERVER AND DATA STREAM AND REFRESHES THE PAGE 
   stopSimulation() {
     this.http.post(url + '/api/simulation/stop', {
     })
@@ -110,6 +112,8 @@ console.log(data);
 }
 
 //DEPLOYS FAN ERROR
+//SETS FAN ERROR VALUE TO TRUE, A FAN ERROR IS THEN DEPLOYED
+//THE FAN SPEED BEGINS TO INCREASE. 
   deployError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=true', {
   })
   .subscribe(data => {
@@ -118,6 +122,8 @@ console.log(data);
 }
 
 //RESOLVES FAN ERROR
+//SETS FAN ERROR VALUE TO FALSE, FAN ERROR IS THEN RESOLVED
+//THE FAN SPEED BEGINS TO DECREASE. 
 resolveError(){this.http.patch(url + '/api/simulation/deployerror?fan_error=false', {
 })
 .subscribe(data => {
@@ -133,7 +139,8 @@ setHandHold(val){this.http.patch(url + '/api/simulation/hand-hold?handhold=${val
 });
 }
 
-//GETS DATA FOR STREAM
+//GETS DATA FOR STREAM FROM EMU.SERVICE.TS UNDER SERVICES 
+//AN ARRAY OF UIA DATA IS CREATED, THIS DATA IS FED TO UIA FUNCTIONS 
 getUiaData() {
   this.emu.getUia()
   .subscribe(data => {this.uias = data;
@@ -142,7 +149,8 @@ getUiaData() {
   });
 }
 
-//GETS DATA FOR STREAM
+//GETS DATA FOR STREAM FROM EMU.SERVICE.TS UNDER SERVICES
+//AN ARRAY OF EMU DATA IS CREATED, THIS DATA IS FED TO EMU FUNCTIONS
   getData() {
     this.emu.getEMU()
     .subscribe(data => {this.telems = data;

@@ -24,7 +24,15 @@ export class DCUComponent {
 	s3status: boolean = false;
 	s4status: boolean = false;
 	s5status: boolean = false;
-	fanstatus: boolean = false;
+    fanstatus: boolean = false;
+    
+
+    /* 
+********************************* DCU CONTROLLER FUNCTION *******************************************
+THESE FUNCTIONS CONTROL THE DCU TELEMETRY DATA THROUGH THE DCU ON SCREEN CONTROLLER. 
+EACH FUNCTION SENDS PATCH UPDATES BACK TO THE TELEMETRY STREAM
+THE TELEMETRY VALUES ARE MANIPULATED BY THE STATE (ON OR OFF) OF EACH FUNCTION. 
+*/
 
     suitPower() {
         this.status = !this.status;
